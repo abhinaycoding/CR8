@@ -55,8 +55,8 @@ const GradientHeading = React.forwardRef<HTMLHeadingElement, HeadingProps>(
   ({ asChild, variant, weight, size, className, children, ...props }, ref) => {
     const Comp = asChild ? Slot : "h3" // default to 'h3' if not a child
     return (
-      <Comp ref={ref} {...props} className={className}>
-        <span className={cn(headingVariants({ variant, size, weight }))}>
+      <Comp ref={ref} {...props}>
+        <span className={cn(headingVariants({ variant, size, weight }), className)}>
           {children}
         </span>
       </Comp>

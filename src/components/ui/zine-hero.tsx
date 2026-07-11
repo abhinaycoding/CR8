@@ -126,16 +126,7 @@ export default function ZineHero() {
                     >
                         <source src="/showreel.mp4" type="video/mp4" />
                     </video>
-                    
-                    {/* Overlay UI */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20 pointer-events-none opacity-50 group-hover:opacity-0 transition-opacity duration-300"></div>
-                    
-                    <div className="absolute top-2 left-2 bg-[#FAFAF7] text-[#0B0D0A] font-black text-[8px] px-1.5 py-0.5 uppercase tracking-widest rounded-full flex items-center shadow-lg" style={{ fontFamily: 'var(--font-display, Archivo Black)' }}>
-                        <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#FF0000] mr-1 animate-pulse"></span>
-                        REC
-                    </div>
                 </motion.div>
-
             </div>
         </div>
     );

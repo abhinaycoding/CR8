@@ -57,6 +57,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
 import ZineHero from './src/components/ui/zine-hero';
 
+import InitialLoader from './src/components/ui/initial-loader';
+const loaderRoot = document.getElementById('react-initial-loader');
+if (loaderRoot) {
+  createRoot(loaderRoot).render(<InitialLoader />);
+}
+
 // React Mounting
 const rootElement = document.getElementById('react-hero-root');
 if (rootElement) {
@@ -92,6 +98,12 @@ if (workRoot) {
   createRoot(workRoot).render(<WorkMarquee />);
 }
 
+import Testimonials from './src/components/ui/testimonials';
+const testimonialsRoot = document.getElementById('react-testimonials');
+if (testimonialsRoot) {
+  createRoot(testimonialsRoot).render(<Testimonials />);
+}
+
 import ProcessUnhinged from './src/components/ui/process-unhinged';
 const processRoot = document.getElementById('react-process-unhinged');
 if (processRoot) {
@@ -102,4 +114,16 @@ import FooterUnhinged from './src/components/ui/footer-unhinged';
 const footerRoot = document.getElementById('react-footer-unhinged');
 if (footerRoot) {
   createRoot(footerRoot).render(<FooterUnhinged />);
+}
+
+import CtaUnhinged from './src/components/ui/cta-unhinged';
+const ctaRoot = document.getElementById('react-cta-unhinged');
+if (ctaRoot) {
+  createRoot(ctaRoot).render(<CtaUnhinged />);
+}
+
+import Chatbot from './src/components/ui/chatbot';
+const chatbotRoot = document.getElementById('react-chatbot');
+if (chatbotRoot) {
+  createRoot(chatbotRoot).render(<Chatbot />);
 }

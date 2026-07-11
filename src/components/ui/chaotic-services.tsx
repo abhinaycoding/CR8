@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence, useSpring } from 'framer-motion';
+import { GradientHeading } from './gradient-heading';
+
 
 export default function ChaoticServices() {
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
@@ -25,7 +27,8 @@ export default function ChaoticServices() {
             desc: 'We find the angle that makes your audience care. Data meets pure creative chaos.',
             color: '#D7FF3E',
             bg: '#0B0D0A',
-            img: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=800&auto=format&fit=crop'
+            img: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=800&auto=format&fit=crop',
+            link: '/services.html?tab=1'
         },
         {
             num: '02',
@@ -33,7 +36,8 @@ export default function ChaoticServices() {
             desc: 'Art direction that breaks the rules. If it looks like a template, we burn it.',
             color: '#0B0D0A',
             bg: '#D7FF3E',
-            img: 'https://images.unsplash.com/photo-1618331835717-801e976710b2?q=80&w=800&auto=format&fit=crop'
+            img: 'https://images.unsplash.com/photo-1618331835717-801e976710b2?q=80&w=800&auto=format&fit=crop',
+            link: '/services.html?tab=0'
         },
         {
             num: '03',
@@ -41,7 +45,8 @@ export default function ChaoticServices() {
             desc: 'High-end video and photo shoots. Raw, unfiltered, and strictly premium.',
             color: '#FAFAF7',
             bg: '#0044FF',
-            img: 'https://images.unsplash.com/photo-1589254066007-898d52d910d3?q=80&w=800&auto=format&fit=crop'
+            img: 'https://images.unsplash.com/photo-1589254066007-898d52d910d3?q=80&w=800&auto=format&fit=crop',
+            link: '/services.html?tab=0'
         },
         {
             num: '04',
@@ -49,33 +54,38 @@ export default function ChaoticServices() {
             desc: 'Paid creative that stops the scroll and full-stack management without the jargon.',
             color: '#FAFAF7',
             bg: '#0B0D0A',
-            img: 'https://images.unsplash.com/photo-1542204165-65bf26472b9b?q=80&w=800&auto=format&fit=crop'
+            img: 'https://images.unsplash.com/photo-1542204165-65bf26472b9b?q=80&w=800&auto=format&fit=crop',
+            link: '/services.html?tab=1'
         }
     ];
 
     return (
         <section 
+            id="services"
             className="relative w-full bg-[#0B0D0A] py-32 overflow-hidden z-10 border-b-8 border-[#FAFAF7]"
             onMouseMove={handleMouseMove}
         >
             <div className="container mx-auto px-4 relative z-10 mb-12">
-                <div className="flex justify-between items-end">
-                    <h2 className="text-[8vw] leading-[0.8] font-black text-[#FAFAF7] uppercase tracking-[-0.01em]" style={{ fontFamily: 'var(--font-display, Archivo Black)' }}>
+                <div className="flex justify-between items-end flex-wrap gap-8">
+                    <GradientHeading 
+                        variant="light" 
+                        weight="black"
+                        className="text-[8vw] leading-[0.8] uppercase tracking-[-0.01em]" 
+                        style={{ fontFamily: 'var(--font-display, Archivo Black)' }}
+                    >
                         SERVICES
-                    </h2>
-                    <p className="text-2xl font-bold max-w-sm text-[#888888] pb-4" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
-                        No boring deliverables. Just high-impact digital noise.
-                    </p>
+                    </GradientHeading>
                 </div>
             </div>
 
             <div className="w-full flex flex-col border-t-8 border-[#333333] relative">
                 {services.map((service, i) => (
-                    <motion.div 
+                    <motion.a 
+                        href={service.link}
                         key={i}
                         onHoverStart={() => setHoveredIndex(i)}
                         onHoverEnd={() => setHoveredIndex(null)}
-                        className="w-full border-b-8 border-[#333333] relative overflow-hidden group cursor-pointer transition-colors duration-500"
+                        className="w-full border-b-8 border-[#333333] relative overflow-hidden group cursor-pointer transition-colors duration-500 block"
                         style={{ backgroundColor: hoveredIndex === i ? service.bg : 'transparent' }}
                     >
                         {/* Background Infinite Marquee on Hover */}
@@ -109,8 +119,8 @@ export default function ChaoticServices() {
                             )}
                         </AnimatePresence>
 
-                        <div className="container mx-auto px-4 py-16 flex items-center justify-between relative z-10">
-                            <div className="flex items-center gap-12">
+                        <div className="container mx-auto px-4 py-16 flex flex-col md:flex-row items-start md:items-center justify-between relative z-10 gap-8">
+                            <div className="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-12">
                                 <span 
                                     className="text-4xl font-black opacity-30 transition-all duration-500" 
                                     style={{ 
@@ -121,22 +131,24 @@ export default function ChaoticServices() {
                                     {service.num}
                                 </span>
                                 
-                                <h3 
-                                    className="text-[8vw] font-black leading-none uppercase tracking-[-0.01em] transition-all duration-500" 
-                                    style={{ 
-                                        fontFamily: 'var(--font-display, Archivo Black)', 
-                                        color: hoveredIndex === i ? service.color : 'transparent',
-                                        WebkitTextStroke: hoveredIndex === i ? 'none' : '2px #FAFAF7',
-                                        transform: hoveredIndex === i ? 'translateX(20px)' : 'translateX(0px)'
-                                    }}
-                                >
-                                    {service.title}
-                                </h3>
+                                <div>
+                                    <h3 
+                                        className="text-[6vw] font-black leading-none uppercase tracking-[-0.01em] transition-all duration-500" 
+                                        style={{ 
+                                            fontFamily: 'var(--font-display, Archivo Black)', 
+                                            color: hoveredIndex === i ? service.color : 'transparent',
+                                            WebkitTextStroke: hoveredIndex === i ? 'none' : '2px #FAFAF7',
+                                            transform: hoveredIndex === i ? 'translateX(20px)' : 'translateX(0px)'
+                                        }}
+                                    >
+                                        {service.title}
+                                    </h3>
+                                </div>
                             </div>
                             
                             {/* Animated Arrow */}
                             <motion.div 
-                                className="text-8xl font-black transition-colors duration-500"
+                                className="text-6xl md:text-8xl font-black transition-colors duration-500"
                                 style={{ color: hoveredIndex === i ? service.color : '#FAFAF7' }}
                                 animate={{ 
                                     rotate: hoveredIndex === i ? 45 : 0,
@@ -174,7 +186,7 @@ export default function ChaoticServices() {
                                 style={{ backgroundImage: "url('data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjAwIDIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZmlsdGVyIGlkPSJub2lzZUZpbHRlciI+PGZlVHVyYnVsZW5jZSB0eXBlPSJmcmFjdGFsTm9pc2UiIGJhc2VGcmVxdWVuY3k9IjAuOSIgbnVtT2N0YXZlcz0iMyIgc3RpdGNoVGlsZXM9InN0aXRjaCIvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbHRlcj0idXJsKCNub2lzZUZpbHRlcikiLz48L3N2Zz4=')" }}
                             />
                         )}
-                    </motion.div>
+                    </motion.a>
                 ))}
 
                 {/* Floating Image Cursor Follow */}
@@ -185,7 +197,7 @@ export default function ChaoticServices() {
                             animate={{ opacity: 1, scale: 1, rotate: Math.random() * 12 - 6 }}
                             exit={{ opacity: 0, scale: 0.5, rotate: 20 }}
                             transition={{ duration: 0.3, type: "spring", stiffness: 200, damping: 20 }}
-                            className="fixed pointer-events-none z-50 w-96 h-[450px] border-8 border-[#0B0D0A] shadow-[20px_20px_0px_rgba(11,13,10,0.8)] overflow-hidden"
+                            className="fixed pointer-events-none z-50 w-96 h-[450px] border-8 border-[#0B0D0A] shadow-[20px_20px_0px_rgba(11,13,10,0.8)] overflow-hidden hidden lg:block"
                             style={{ 
                                 x: springX, 
                                 y: springY,

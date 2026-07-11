@@ -3,17 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CR8 Studio | Creative Agency</title>
-    <meta name="description" content="CR8 is a creative agency making noise that sells. Bold, youthful, unapologetic content for brands wanting street-culture." />
+    <title>Services | CR8 Studio</title>
+    <meta name="description" content="What we do. Our services across production, marketing, spaces, and community." />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@900&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/style.css" />
   </head>
-  <body class="bg-[#FAFAF7] text-[#0B0D0A]">
-    <!-- Initial Loader -->
-    <div id="react-initial-loader"></div>
-
+  <body>
     <div class="noise"></div>
     
     <!-- Nav -->
@@ -37,7 +34,7 @@
             </div>
           </li>
           <li><a href="work.html">Work</a></li>
-          <li><a href="#process">Process</a></li>
+          <li><a href="index.html#process">Process</a></li>
         </ul>
         <div class="nav-cta">
           <a href="contact.html" class="brutal-btn sticker-btn">BOOK US ↘</a>
@@ -49,36 +46,21 @@
       </div>
     </nav>
 
-    <!-- React Zine Hero Mount Point -->
-    <div id="react-zine-hero"></div>    
-    
-    <!-- React Stop Motion Mount Point -->
-    <div id="react-stop-motion"></div>
-    
-    <!-- React Clients Section Mount Point -->
-    <div id="react-clients-section"></div>
+    <!-- Content injected via React -->
+    <div id="react-services-root"></div>
 
-    <!-- React Chaotic Services Mount Point -->
-    <div id="react-chaotic-services"></div>
-
-    <!-- React Work Marquee Mount Point -->
-    <div id="react-work-marquee"></div>
-
-    <!-- React Testimonials Mount Point -->
-    <div id="react-testimonials"></div>
-
-    <!-- React Process Unhinged Mount Point -->
-    <div id="react-process-unhinged"></div>
-
-    <!-- React CTA Mount Point -->
-    <div id="react-cta-unhinged"></div>
-
-    <!-- React Footer Unhinged Mount Point -->
+    <!-- Footer -->
     <div id="react-footer-unhinged"></div>
 
-    <!-- React Chatbot Mount Point -->
-    <div id="react-chatbot"></div>
-
-    <script type="module" src="/main.tsx"></script>
+    <script type="module" src="/services.tsx"></script>
+  <a href="https://wa.me/" target="_blank" rel="noopener noreferrer" 
+     class="fixed bottom-6 right-6 md:bottom-8 md:right-8 z-[9999] bg-[#D7FF3E] border-[3px] px-4 py-3 shadow-[6px_6px_0px_#0B0D0A] hover:translate-x-1 hover:-translate-y-1 hover:shadow-[10px_10px_0px_#0B0D0A] transition-all flex items-center justify-center gap-2 group font-black"
+     style="font-family: 'var(--font-display, Archivo Black)'; color: #0B0D0A; border-color: #0B0D0A;"
+     aria-label="Chat on WhatsApp">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 group-hover:scale-110 transition-transform">
+          <path d="M3 21l1.65-4.95A9.5 9.5 0 1 1 21 12.5a9.5 9.5 0 0 1-13.45 8.6L3 21z"></path>
+      </svg>
+      <span class="text-sm md:text-base tracking-wider uppercase mt-0.5 whitespace-nowrap hidden md:block">HIT US UP</span>
+  </a>
 </body>
 </html>
