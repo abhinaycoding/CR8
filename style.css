@@ -182,16 +182,43 @@ img { max-width: 100%; display: block; object-fit: cover; }
   font-size: 1.25rem;
   font-weight: 700;
   letter-spacing: 0.1em;
-  color: var(--text-primary);
   display: flex;
   align-items: center;
   gap: 8px;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
+
+.brand-logo span:nth-child(1),
+.brand-logo span:nth-child(2) {
+  background: linear-gradient(90deg, var(--lime), #00FF3E, var(--blue), #FF00FF, var(--lime));
+  background-size: 300% auto;
+  color: transparent !important;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-stroke: 0px !important; /* Remove stroke so the gradient fill is fully visible */
+  animation: color-flow 3s linear infinite;
+}
+
+@keyframes color-flow {
+  0% { background-position: 0% center; }
+  100% { background-position: 300% center; }
+}
+
+.brand-logo:hover {
+  transform: scale(1.05) rotate(-2deg);
+}
+
 .brand-logo .lime-dot {
   color: var(--accent);
   font-size: 1.5rem;
   line-height: 0;
   text-shadow: 0 0 10px rgba(215, 255, 62, 0.5);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: inline-block;
+}
+.brand-logo:hover .lime-dot {
+  transform: scale(1.8) translateY(-4px) rotate(180deg);
+  text-shadow: 0 0 15px var(--lime);
 }
 
 .brand-stamp {
@@ -303,12 +330,36 @@ img { max-width: 100%; display: block; object-fit: cover; }
   justify-content: center;
   transition: all 0.3s ease;
   backdrop-filter: blur(8px);
+  animation: blink-continuous 2s infinite;
 }
+
+@keyframes blink-continuous {
+  0%, 100% {
+    background: var(--blue);
+    color: var(--white);
+    border-color: var(--blue);
+    box-shadow: 6px 6px 0px var(--lime);
+  }
+  33% {
+    background: #FFDE00; /* Yellow */
+    color: var(--black);
+    border-color: #FFDE00;
+    box-shadow: 6px 6px 0px var(--blue);
+  }
+  66% {
+    background: #00FF3E; /* Bright Green */
+    color: var(--black);
+    border-color: #00FF3E;
+    box-shadow: 6px 6px 0px #FFDE00;
+  }
+}
+
 .sticker-btn:hover {
-  background: var(--text-primary);
-  color: var(--bg-dark);
-  border-color: var(--text-primary);
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+  background: var(--text-primary) !important;
+  color: var(--bg-dark) !important;
+  border-color: var(--text-primary) !important;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2) !important;
+  animation: none;
 }
 
 /* Hero */

@@ -1,10 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import MaskingTape from './masking-tape';
+import RippedPaper from './ripped-paper';
 
 export default function ZineHero() {
     return (
         <div 
-            className="relative w-full h-[100svh] overflow-hidden bg-[#0B0D0A] flex flex-col justify-center items-center"
+            className="relative w-full h-[100svh] bg-[#0B0D0A] flex flex-col justify-center items-center"
         >
             {/* Background Video & Noise */}
             <video 
@@ -28,7 +30,7 @@ export default function ZineHero() {
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 0.1, duration: 0.5 }}
                 >
-                    <h1 className="text-[16vw] md:text-[12vw] font-black text-[#FAFAF7] uppercase tracking-[-0.02em] leading-[0.8]" style={{ fontFamily: 'var(--font-display, Archivo Black)' }}>
+                    <h1 className="text-[16vw] md:text-[12vw] font-black text-[#D7FF3E] uppercase tracking-[-0.02em] leading-[0.8]" style={{ fontFamily: 'var(--font-display, Archivo Black)' }}>
                         WE MAKE
                     </h1>
                 </motion.div>
@@ -37,7 +39,7 @@ export default function ZineHero() {
                     initial={{ y: 50, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 0.2, duration: 0.5 }}
-                    className="relative"
+                    className="relative flex flex-col items-center"
                 >
                     <h1 
                         className="text-[18vw] md:text-[14vw] font-black text-transparent uppercase tracking-[-0.02em] leading-[0.85]" 
@@ -54,7 +56,7 @@ export default function ZineHero() {
                         initial={{ y: 20, opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}
                         transition={{ delay: 0.4, duration: 0.5 }}
-                        className="absolute -bottom-6 md:-bottom-10 left-1/2 -translate-x-1/2 z-50 whitespace-nowrap"
+                        className="mt-4 md:mt-8 z-50 whitespace-nowrap"
                     >
                         <a href="#contact" className="inline-block bg-[#0044FF] text-[#FAFAF7] border-4 border-[#FAFAF7] px-6 py-3 md:px-8 md:py-4 font-black text-lg md:text-xl uppercase tracking-wider shadow-[8px_8px_0px_#FAFAF7] hover:bg-[#FAFAF7] hover:text-[#0044FF] hover:translate-x-1 hover:-translate-y-1 hover:shadow-[12px_12px_0px_#0044FF] transition-all" style={{ fontFamily: 'var(--font-display, Archivo Black)' }} draggable="false">
                             START PROJECT ↘
@@ -68,10 +70,13 @@ export default function ZineHero() {
                 
                 {/* Top Left: Sticker */}
                 <motion.div
+                    drag
+                    dragConstraints={{ left: -100, right: 300, top: -50, bottom: 300 }}
+                    whileDrag={{ scale: 1.1, rotate: 0, zIndex: 100 }}
                     initial={{ scale: 0.5, rotate: -30, opacity: 0 }}
                     animate={{ scale: 1, rotate: -12, opacity: 1 }}
                     transition={{ delay: 0.5, duration: 0.5, type: "spring" }}
-                    className="absolute top-[20%] left-[12%] lg:left-[15%] bg-[#D7FF3E] text-[#0B0D0A] border-4 border-[#0B0D0A] px-4 py-2 font-black text-xl shadow-[6px_6px_0px_#0B0D0A]"
+                    className="absolute top-[20%] left-[12%] lg:left-[15%] bg-[#D7FF3E] text-[#0B0D0A] border-4 border-[#0B0D0A] px-4 py-2 font-black text-xl shadow-[6px_6px_0px_#0B0D0A] pointer-events-auto cursor-grab active:cursor-grabbing"
                     style={{ fontFamily: 'var(--font-display, Archivo Black)' }}
                 >
                     100% RAW
@@ -79,10 +84,13 @@ export default function ZineHero() {
 
                 {/* Top Right: Stamp */}
                 <motion.div
+                    drag
+                    dragConstraints={{ left: -300, right: 50, top: -50, bottom: 300 }}
+                    whileDrag={{ scale: 1.1, zIndex: 100 }}
                     initial={{ scale: 0, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
                     transition={{ delay: 0.6, duration: 0.5 }}
-                    className="absolute top-[20%] right-[12%] lg:right-[15%] rounded-full bg-[#FAFAF7] border-4 border-[#0B0D0A] shadow-[8px_8px_0px_#0B0D0A] p-2 flex items-center justify-center w-[120px] h-[120px] lg:w-[140px] lg:h-[140px]"
+                    className="absolute top-[20%] right-[12%] lg:right-[15%] rounded-full bg-[#FAFAF7] border-4 border-[#0B0D0A] shadow-[8px_8px_0px_#0B0D0A] p-2 flex items-center justify-center w-[120px] h-[120px] lg:w-[140px] lg:h-[140px] pointer-events-auto cursor-grab active:cursor-grabbing"
                 >
                     <motion.svg 
                         viewBox="0 0 100 100" 
@@ -97,16 +105,21 @@ export default function ZineHero() {
                             </textPath>
                         </text>
                     </motion.svg>
-                    <div className="absolute font-black text-3xl text-[#0B0D0A] mt-1">✷</div>
+                    <div className="absolute font-black text-3xl text-[#0B0D0A] mt-1 pointer-events-none">✷</div>
                 </motion.div>
 
                 {/* Bottom Left: Image Card */}
                 <motion.div
+                    drag
+                    dragConstraints={{ left: -100, right: 300, top: -300, bottom: 50 }}
+                    whileDrag={{ scale: 1.05, rotate: 0, zIndex: 100 }}
                     initial={{ x: -50, y: 50, rotate: -10, opacity: 0 }}
                     animate={{ x: 0, y: 0, rotate: -6, opacity: 1 }}
                     transition={{ delay: 0.7, duration: 0.6, type: "spring" }}
-                    className="absolute bottom-[12%] left-[10%] lg:left-[15%] w-[20vw] max-w-[220px] aspect-[3/4] border-8 border-[#0B0D0A] shadow-[12px_12px_0px_#FAFAF7] overflow-hidden bg-[#FAFAF7] pointer-events-auto"
+                    className="absolute bottom-[12%] left-[10%] lg:left-[15%] w-[20vw] max-w-[220px] aspect-[3/4] border-8 border-[#0B0D0A] shadow-[12px_12px_0px_#FAFAF7] overflow-hidden bg-[#FAFAF7] pointer-events-auto cursor-grab active:cursor-grabbing"
                 >
+                    <MaskingTape className="-top-4 -left-4" rotation={-12} />
+                    <MaskingTape className="-bottom-4 -right-4" rotation={15} />
                     <img src="https://images.unsplash.com/photo-1618331835717-801e976710b2?q=80&w=600&auto=format&fit=crop" alt="Street" className="w-full h-full object-cover grayscale contrast-125 hover:grayscale-0 transition-all duration-300" draggable="false" />
                 </motion.div>
 
@@ -117,6 +130,7 @@ export default function ZineHero() {
                     transition={{ delay: 0.8, duration: 0.6, type: "spring" }}
                     className="absolute bottom-[8%] right-[6%] lg:right-[10%] w-[18vw] max-w-[180px] aspect-[9/16] rounded-2xl overflow-hidden pointer-events-auto hover:-translate-y-2 hover:rotate-2 transition-all duration-300 group border-[3px] border-[#0B0D0A]"
                 >
+                    <MaskingTape className="-top-2 left-1/2 -translate-x-1/2" rotation={2} />
                     <video 
                         autoPlay 
                         loop 
@@ -128,6 +142,8 @@ export default function ZineHero() {
                     </video>
                 </motion.div>
             </div>
+            
+            <RippedPaper color="#0B0D0A" position="bottom" className="translate-y-full" />
         </div>
     );
 }
