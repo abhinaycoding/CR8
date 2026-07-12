@@ -24,7 +24,7 @@ export default function FooterUnhinged() {
     };
 
     return (
-        <footer id="contact" className="relative w-full bg-[#0B0D0A] text-[#FAFAF7] pt-24 pb-8 overflow-hidden border-t border-[#333333]">
+        <footer id="contact" className="relative w-full bg-[#0B0D0A] text-[#FAFAF7] pb-8 overflow-hidden border-t border-[#333333]" style={{ paddingTop: '80px' }}>
             <div className="container mx-auto px-4 md:px-8 max-w-[1400px]">
                 
                 {/* Top Section - Grid */}

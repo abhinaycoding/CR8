@@ -22,10 +22,10 @@ export default function WorkMarquee() {
             <div className="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjAwIDIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZmlsdGVyIGlkPSJub2lzZUZpbHRlciI+PGZlVHVyYnVsZW5jZSB0eXBlPSJmcmFjdGFsTm9pc2UiIGJhc2VGcmVxdWVuY3k9IjAuOSIgbnVtT2N0YXZlcz0iMyIgc3RpdGNoVGlsZXM9InN0aXRjaCIvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbHRlcj0idXJsKCNub2lzZUZpbHRlcikiLz48L3N2Zz4=')] opacity-[0.05] pointer-events-none z-0 invert"></div>
 
             <div className="container mx-auto px-4 relative z-10 mb-20 flex flex-col md:flex-row justify-between items-center gap-8">
-                <h2 className="text-[12vw] md:text-[9vw] leading-[0.8] font-black text-[#FAFAF7] uppercase tracking-tighter" style={{ fontFamily: 'var(--font-display, Archivo Black)' }}>
-                    THE <br/><span className="text-[#D7FF3E] relative inline-block">VIBE<span className="absolute top-4 -right-16 text-3xl text-[#FAFAF7] rotate-12 hidden md:block">✷</span></span>
+                <h2 className="text-[10vw] md:text-[8vw] leading-[0.8] font-black text-[#FAFAF7] uppercase tracking-tighter whitespace-nowrap" style={{ fontFamily: 'var(--font-display, Archivo Black)' }}>
+                    THE <span className="text-[#D7FF3E] relative inline-block">VIBE<span className="absolute top-0 -right-12 md:-right-16 text-2xl md:text-3xl text-[#FAFAF7] rotate-12 hidden md:block">✷</span></span>
                 </h2>
-                <a href="work.html" className="inline-block bg-[#D7FF3E] text-[#0B0D0A] font-black text-xl md:text-2xl py-4 px-8 border-[4px] border-[#FAFAF7] shadow-[8px_8px_0px_#FAFAF7] hover:bg-[#0B0D0A] hover:text-[#D7FF3E] hover:border-[#0B0D0A] hover:shadow-[12px_12px_0px_#D7FF3E] hover:translate-x-1 hover:-translate-y-1 transition-all uppercase tracking-widest" style={{ fontFamily: 'var(--font-display, Archivo Black)' }}>
+                <a href="work.html" className="inline-block bg-[#0B0D0A] text-[#D7FF3E] font-black text-xl md:text-2xl py-4 px-8 border-[4px] border-[#D7FF3E] shadow-[8px_8px_0px_#D7FF3E] hover:bg-[#D7FF3E] hover:text-[#0B0D0A] hover:translate-x-1 hover:-translate-y-1 transition-all uppercase tracking-widest" style={{ fontFamily: 'var(--font-display, Archivo Black)' }}>
                     VIEW FULL PORTFOLIO ↘
                 </a>
             </div>
