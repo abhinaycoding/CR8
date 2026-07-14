@@ -82,8 +82,7 @@ export default function StopMotionScroll() {
                     </h2>
                 </motion.div>
 
-                {/* Single img — src swaps instantly from browser cache */}
-                <div className="relative z-10 w-[90vw] md:w-[60vw] h-[60vh] max-w-5xl border-[16px] border-[#0B0D0A] shadow-[24px_24px_0px_#D7FF3E] bg-[#0B0D0A] overflow-hidden">
+                <div className="relative z-10 w-[90vw] md:w-[60vw] h-[60vh] max-w-5xl border-[16px] border-[#0B0D0A] shadow-[24px_24px_0px_#D7FF3E] bg-[#FAFAF7] overflow-hidden">
                     {loaded ? (
                         <img
                             src={images[currentIndex]}

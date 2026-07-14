@@ -33,7 +33,7 @@ export default function FooterUnhinged() {
                     {/* Brand & Location */}
                     <div className="lg:col-span-4 flex flex-col">
                         <h3 className="text-3xl font-black mb-6 uppercase tracking-tighter" style={{ fontFamily: 'var(--font-display, Archivo Black)' }}>
-                            CR8 STUDIO.
+                            CR8 Studios.
                         </h3>
                         <p className="text-[#888888] font-medium max-w-sm mb-6" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
                             We are a creative agency making noise that sells. Bold, youthful, unapologetic content for brands wanting street-culture relevance.
@@ -85,13 +85,13 @@ export default function FooterUnhinged() {
                 {/* Massive Marquee Text */}
                 <div className="w-full flex items-center justify-center border-t border-b border-[#333333] py-8 mb-8 overflow-hidden">
                     <h2 className="text-[8.5vw] md:text-[6vw] lg:text-[5.5vw] leading-none font-black text-[#FAFAF7] tracking-tighter whitespace-nowrap" style={{ fontFamily: 'var(--font-display, Archivo Black)' }}>
-                        CR8 STUDIO &copy; 2026
+                        CR8 Studios &copy; 2026
                     </h2>
                 </div>
 
                 {/* Legal & Copyright */}
                 <div className="flex flex-col md:flex-row justify-between items-center text-sm font-medium text-[#888888] gap-4" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
-                    <p>&copy; 2026 CR8 Studio. All rights reserved.</p>
+                    <p>&copy; 2026 CR8 Studios. All rights reserved.</p>
                     <div className="flex flex-wrap gap-4 md:space-x-6">
                         <a href="#" className="hover:text-[#FAFAF7] transition-colors">Privacy Policy</a>
                         <a href="#" className="hover:text-[#FAFAF7] transition-colors">Terms & Conditions</a>

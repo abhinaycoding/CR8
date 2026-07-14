@@ -3,7 +3,7 @@
 export const chatbotResponses: Record<string, string> = {
     // Basic Greetings
     "hello": "Hey there. Ready to drop the corporate act and build something real? How can we help?",
-    "hi": "Hi. Welcome to CR8 Studio. What are you looking to build?",
+    "hi": "Hi. Welcome to CR8 Studios. What are you looking to build?",
     "hey": "Hey! Looking to make some noise? What's on your mind?",
     "howdy": "Howdy. Let's get straight to business. What do you need?",
     "morning": "Good morning. Ready to start a fire today?",
@@ -124,7 +124,7 @@ export const chatbotResponses: Record<string, string> = {
     "cr8": "That's us. The best in the game.",
     "studio": "Our studio is where the magic happens.",
     "agency": "We're not a normal agency. We're a creative hit squad.",
-    "name": "I'm the CR8 Studio Bot. Pleased to meet you.",
+    "name": "I'm the CR8 Studios Bot. Pleased to meet you.",
     "who are you": "I'm the resident AI here to get you the info you need fast.",
     "fuck": "Hey now, let's keep it professional. But we appreciate the passion.",
     "shit": "Shit happens. But not when we launch your project.",

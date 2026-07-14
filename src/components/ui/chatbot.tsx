@@ -60,7 +60,7 @@ export default function Chatbot() {
                                     <div className="absolute w-2.5 h-2.5 rounded-full bg-[#D7FF3E] animate-ping opacity-75"></div>
                                 </div>
                                 <div>
-                                    <h3 className="font-bold text-white text-sm tracking-[0.2em] uppercase" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>CR8 STUDIO AI</h3>
+                                    <h3 className="font-bold text-white text-sm tracking-[0.2em] uppercase" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>CR8 Studios AI</h3>
                                 </div>
                             </div>
                             <button 
