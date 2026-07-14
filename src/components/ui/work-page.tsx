@@ -89,7 +89,7 @@ export default function WorkPage() {
     <div className="w-full bg-[#0B0D0A] text-[#FAFAF7] min-h-screen">
 
       {/* ── PAGE HEADER ── */}
-      <section className="w-full pt-48 pb-10 px-6 lg:px-16 border-b border-[#1E1E1E]">
+      <section className="w-full pb-10 px-6 lg:px-16 border-b border-[#1E1E1E]" style={{ paddingTop: '120px' }}>
         <div className="max-w-screen-xl mx-auto flex flex-col md:flex-row md:items-end md:justify-between gap-6">
           <div>
             <p className="text-xs font-bold tracking-[0.25em] text-[#D7FF3E] uppercase mb-4">
@@ -112,7 +112,7 @@ export default function WorkPage() {
       </section>
 
       {/* ── FILTER BAR ── */}
-      <div className="w-full px-6 lg:px-16 py-5 border-b border-[#1E1E1E] bg-[#0B0D0A] sticky top-[72px] z-10">
+      <div className="w-full px-6 lg:px-16 py-5 border-b border-[#1E1E1E] bg-[#0B0D0A]" style={{ position: 'sticky', top: '80px', zIndex: 10 }}>
         <div className="max-w-screen-xl mx-auto flex flex-wrap gap-2">
           {categories.map(cat => (
             <button
