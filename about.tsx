@@ -51,3 +51,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+import Chatbot from './src/components/ui/chatbot';
+const chatbotRoot = document.getElementById('react-chatbot');
+if (chatbotRoot) {
+  createRoot(chatbotRoot).render(
+    <StrictMode>
+      <Chatbot />
+    </StrictMode>
+  );
+}

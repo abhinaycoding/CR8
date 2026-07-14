@@ -32,3 +32,9 @@ const footerRoot = document.getElementById('react-footer-unhinged');
 if (footerRoot) {
   createRoot(footerRoot).render(<FooterUnhinged />);
 }
+
+import Chatbot from './src/components/ui/chatbot';
+const chatbotRoot = document.getElementById('react-chatbot');
+if (chatbotRoot) {
+  createRoot(chatbotRoot).render(<Chatbot />);
+}

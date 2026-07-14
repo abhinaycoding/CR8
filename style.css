@@ -55,6 +55,27 @@ h1, h2, h3, h4, .font-display {
   line-height: 1.1;
 }
 
+.logo-cr8 {
+  background: linear-gradient(90deg, #FF00FF 0%, #FF66B2 50%, #D7FF3E 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+.logo-studio {
+  background: linear-gradient(90deg, #FF00FF 0%, #FF66B2 30%, #FFB6A0 60%, #FFFF66 85%, #D7FF3E 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-stroke: 0px;
+}
+
+.logo-dot {
+  color: var(--lime);
+}
+
 a { text-decoration: none; color: inherit; transition: color 0.3s ease; }
 a:hover { color: var(--accent); }
 ul { list-style: none; }
@@ -257,11 +278,14 @@ img { max-width: 100%; display: block; object-fit: cover; }
   font-weight: 500;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: var(--text-muted);
+  color: var(--lime);
+  text-shadow: 0 0 10px rgba(215, 255, 62, 0.5);
   position: relative;
+  transition: all 0.3s ease;
 }
 .nav-links a:hover {
-  color: var(--text-primary);
+  color: var(--white);
+  text-shadow: 0 0 15px rgba(250, 250, 247, 0.8);
 }
 
 /* Nav Dropdown */
