@@ -169,7 +169,7 @@ export default function ChaoticServices() {
                                     className="container mx-auto px-4 pb-20 relative z-20"
                                 >
                                     <div className="pl-[140px] max-w-4xl mt-4">
-                                        <span className="text-5xl font-bold leading-snug bg-[#0B0D0A] text-[#FAFAF7] px-4 py-2 box-decoration-clone shadow-[4px_4px_0px_rgba(11,13,10,1)]" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+                                        <span className="text-5xl font-bold leading-tight text-[#FAFAF7]" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
                                             {service.desc}
                                         </span>
                                     </div>
