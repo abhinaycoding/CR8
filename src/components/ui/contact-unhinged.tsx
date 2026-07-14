@@ -37,7 +37,7 @@ export default function ContactUnhinged() {
               We collaborate with visionary brands. Drop us a line and tell us about your next big project.
             </p>
             
-            <div className="hidden lg:flex flex-col space-y-8">
+            <div className="flex flex-col space-y-8 mt-12 lg:mt-0">
               <div>
                 <h4 className="text-sm font-bold tracking-widest text-[#D7FF3E] mb-2 uppercase">HQ</h4>
                 <p className="text-lg font-medium leading-tight text-[#FAFAF7]" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>

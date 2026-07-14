@@ -412,7 +412,7 @@ export function ClientsSection() {
     <div className="space-y-8 py-16 bg-[#D7FF3E] w-full overflow-hidden border-y-8 border-[#0B0D0A]">
       <div className="mx-auto flex w-full max-w-[1400px] flex-col items-center space-y-12 px-4">
         <div className="text-center w-full">
-          <h2 className="text-5xl md:text-8xl font-black tracking-tighter uppercase text-[#0B0D0A]" style={{ fontFamily: 'Archivo Black, sans-serif' }}>
+          <h2 className="text-[12vw] sm:text-5xl md:text-8xl font-black tracking-tighter uppercase text-[#0B0D0A]" style={{ fontFamily: 'Archivo Black, sans-serif' }}>
             TRUSTED BY THE CULT
           </h2>
         </div>

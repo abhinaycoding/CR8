@@ -6,6 +6,7 @@ import { GradientHeading } from './gradient-heading';
 export default function ChaoticServices() {
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
     const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+    const [isMobile, setIsMobile] = useState(false);
 
     // Smooth spring physics for the floating image
     const springX = useSpring(0, { stiffness: 100, damping: 20 });
@@ -14,6 +15,11 @@ export default function ChaoticServices() {
     useEffect(() => {
         springX.set(mousePos.x);
         springY.set(mousePos.y);
+        
+        const checkMobile = () => setIsMobile(window.innerWidth < 768);
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
     }, [mousePos, springX, springY]);
 
     const handleMouseMove = (e: React.MouseEvent) => {
@@ -124,7 +130,7 @@ export default function ChaoticServices() {
                                 <span 
                                     className="text-4xl font-black opacity-30 transition-all duration-500" 
                                     style={{ 
-                                        color: hoveredIndex === i ? service.color : '#FAFAF7',
+                                        color: (isMobile || hoveredIndex === i) ? service.color : '#FAFAF7',
                                         transform: hoveredIndex === i ? 'rotate(-10deg) scale(1.2)' : 'rotate(0deg) scale(1)'
                                     }}
                                 >
@@ -133,11 +139,11 @@ export default function ChaoticServices() {
                                 
                                 <div>
                                     <h3 
-                                        className="text-[6vw] font-black leading-none uppercase tracking-[-0.01em] transition-all duration-500" 
+                                        className="text-[12vw] md:text-[6vw] font-black leading-none uppercase tracking-[-0.01em] transition-all duration-500" 
                                         style={{ 
                                             fontFamily: 'var(--font-display, Archivo Black)', 
-                                            color: hoveredIndex === i ? service.color : 'transparent',
-                                            WebkitTextStroke: hoveredIndex === i ? 'none' : '2px #FAFAF7',
+                                            color: (isMobile || hoveredIndex === i) ? service.color : 'transparent',
+                                            WebkitTextStroke: (isMobile || hoveredIndex === i) ? 'none' : '2px #FAFAF7',
                                             transform: hoveredIndex === i ? 'translateX(20px)' : 'translateX(0px)'
                                         }}
                                     >

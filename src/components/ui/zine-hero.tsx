@@ -1,9 +1,23 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import MaskingTape from './masking-tape';
 import RippedPaper from './ripped-paper';
 
 export default function ZineHero() {
+    const words = ['CULTURE.', 'VIBE.', 'BRANDS.', 'NOISE.', 'HYPE.', 'MODELS.', 'CREATORS.'];
+    const [wordIndex, setWordIndex] = useState(0);
+
+    // List of showcase videos to cycle through automatically
+    const showcaseVideos = ['/showreel.mp4', '/hero-vid.mp4'];
+    const [videoIndex, setVideoIndex] = useState(0);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setWordIndex((prev) => (prev + 1) % words.length);
+        }, 2500); // Change word every 2.5 seconds
+        return () => clearInterval(interval);
+    }, []);
+
     return (
         <div 
             className="relative w-full h-[100svh] bg-[#0B0D0A] flex flex-col justify-center items-center overflow-hidden"
@@ -24,13 +38,13 @@ export default function ZineHero() {
             />
 
             {/* Main Centered Typography */}
-            <div className="relative z-30 flex flex-col items-center justify-center w-full text-center">
+            <div className="relative z-30 flex flex-col items-center justify-center w-full text-center mt-[-10vh] md:mt-0 px-4">
                 <motion.div
                     initial={{ y: 50, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 0.1, duration: 0.5 }}
                 >
-                    <h1 className="text-[clamp(4rem,16vw,25vh)] md:text-[clamp(6rem,12vw,25vh)] font-black text-[#D7FF3E] uppercase tracking-[-0.02em] leading-[0.8]" style={{ fontFamily: 'var(--font-display, Archivo Black)' }}>
+                    <h1 className="font-black text-[#D7FF3E] uppercase tracking-[-0.02em] leading-[0.8]" style={{ fontFamily: 'var(--font-display, Archivo Black)', fontSize: 'clamp(3rem, 18vw, 150px)' }}>
                         WE BUILD
                     </h1>
                 </motion.div>
@@ -39,109 +53,52 @@ export default function ZineHero() {
                     initial={{ y: 50, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 0.2, duration: 0.5 }}
-                    className="relative flex flex-col items-center"
+                    className="relative flex flex-col items-center mt-2 w-full"
                 >
-                    <h1 
-                        className="text-[clamp(5rem,18vw,28vh)] md:text-[clamp(7rem,14vw,28vh)] font-black text-transparent uppercase tracking-[-0.02em] leading-[0.85]" 
-                        style={{ 
-                            fontFamily: 'var(--font-display, Archivo Black)',
-                            WebkitTextStroke: '3px #D7FF3E',
-                        }}
-                    >
-                        CULTURE.
-                    </h1>
+                    <div className="flex items-center justify-center w-full relative overflow-visible" style={{ height: 'clamp(3.5rem, 20vw, 180px)' }}>
+                        <AnimatePresence mode="popLayout">
+                            <motion.h1 
+                                key={wordIndex}
+                                initial={{ y: 40, opacity: 0 }}
+                                animate={{ y: 0, opacity: 1 }}
+                                exit={{ y: -40, opacity: 0 }}
+                                transition={{ duration: 0.5, ease: "easeOut" }}
+                                className="absolute font-black text-transparent uppercase tracking-[-0.02em] leading-[0.85] w-full" 
+                                style={{ 
+                                    fontFamily: 'var(--font-display, Archivo Black)',
+                                    WebkitTextStroke: 'min(3px, 0.5vw) #D7FF3E',
+                                    fontSize: 'clamp(4rem, 22vw, 200px)'
+                                }}
+                            >
+                                {words[wordIndex]}
+                            </motion.h1>
+                        </AnimatePresence>
+                    </div>
 
-                    <motion.div
-                        initial={{ y: 20, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
-                        transition={{ delay: 0.4, duration: 0.5 }}
-                        className="mt-6 md:mt-10 z-50 whitespace-nowrap"
-                    >
-                        <a href="#contact" className="inline-block bg-[#0044FF] text-[#FAFAF7] border-4 border-[#FAFAF7] px-6 py-3 md:px-8 md:py-4 font-black text-lg md:text-xl uppercase tracking-wider shadow-[8px_8px_0px_#FAFAF7] hover:bg-[#FAFAF7] hover:text-[#0044FF] hover:translate-x-1 hover:-translate-y-1 hover:shadow-[12px_12px_0px_#0044FF] transition-all" style={{ fontFamily: 'var(--font-display, Archivo Black)' }} draggable="false">
-                            START PROJECT ↘
-                        </a>
-                    </motion.div>
+
                 </motion.div>
             </div>
 
-            {/* Assets Placed Cleanly in the Corners (Desktop Only) */}
-            <div className="hidden md:block absolute inset-0 pointer-events-none z-20">
+            {/* Assets Placed Cleanly in the Corners */}
+            <div className="absolute inset-0 pointer-events-none z-20">
                 
-                {/* Top Left: Sticker */}
-                <motion.div
-                    drag
-                    dragConstraints={{ left: -100, right: 300, top: -50, bottom: 300 }}
-                    whileDrag={{ scale: 1.1, rotate: 0, zIndex: 100 }}
-                    initial={{ scale: 0.5, rotate: -30, opacity: 0 }}
-                    animate={{ scale: 1, rotate: -12, opacity: 1 }}
-                    transition={{ delay: 0.5, duration: 0.5, type: "spring" }}
-                    className="absolute top-[220px] left-[5%] lg:left-[10%] bg-[#D7FF3E] text-[#0B0D0A] border-4 border-[#0B0D0A] px-4 py-2 font-black text-xl shadow-[6px_6px_0px_#0B0D0A] pointer-events-auto cursor-grab active:cursor-grabbing"
-                    style={{ fontFamily: 'var(--font-display, Archivo Black)' }}
-                >
-                    100% RAW
-                </motion.div>
 
-                {/* Top Right: Stamp */}
+                {/* Bottom Right: Clean Video Showcase */}
                 <motion.div
-                    drag
-                    dragConstraints={{ left: -300, right: 50, top: -50, bottom: 300 }}
-                    whileDrag={{ scale: 1.1, zIndex: 100 }}
-                    initial={{ scale: 0, opacity: 0 }}
-                    animate={{ scale: 1, opacity: 1 }}
-                    transition={{ delay: 0.6, duration: 0.5 }}
-                    className="absolute top-[220px] right-[5%] lg:right-[10%] rounded-full bg-[#FAFAF7] border-4 border-[#0B0D0A] shadow-[8px_8px_0px_#0B0D0A] p-2 flex items-center justify-center w-[120px] h-[120px] lg:w-[140px] lg:h-[140px] pointer-events-auto cursor-grab active:cursor-grabbing"
-                >
-                    <motion.svg 
-                        viewBox="0 0 100 100" 
-                        className="w-full h-full text-[#0B0D0A]"
-                        animate={{ rotate: 360 }}
-                        transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-                    >
-                        <path id="circlePathHero" d="M 50, 50 m -40, 0 a 40,40 0 1,1 80,0 a 40,40 0 1,1 -80,0" fill="transparent" />
-                        <text className="font-bold text-[10px] tracking-widest" style={{ fontFamily: 'Space Grotesk, sans-serif' }} fill="currentColor">
-                            <textPath href="#circlePathHero" startOffset="0">
-                                CR8 STUDIO &middot; CR8 STUDIO &middot; CR8 STUDIO &middot; 
-                            </textPath>
-                        </text>
-                    </motion.svg>
-                    <div className="absolute font-black text-3xl text-[#0B0D0A] mt-1 pointer-events-none">✷</div>
-                </motion.div>
-
-                {/* Bottom Left: Premium Camera Image */}
-                <motion.div
-                    initial={{ x: -50, y: 50, rotate: -10, opacity: 0 }}
-                    animate={{ x: 0, y: 0, rotate: -6, opacity: 1 }}
-                    transition={{ delay: 0.7, duration: 0.6, type: "spring" }}
-                    className="absolute bottom-[5%] left-[4%] lg:left-[8%] w-[20vw] max-w-[220px] aspect-[3/4] p-3 border-[5px] border-[#0B0D0A] shadow-[12px_12px_0px_#FAFAF7] bg-[#FAFAF7] group"
-                >
-                    <MaskingTape className="-top-4 -left-4" rotation={-12} />
-                    <MaskingTape className="-bottom-4 -right-4" rotation={15} />
-                    <div className="w-full h-full overflow-hidden border-2 border-[#0B0D0A]">
-                        <img 
-                            src="https://images.unsplash.com/photo-1510127034890-ba27508e9f1c?q=80&w=800&auto=format&fit=crop" 
-                            alt="Professional Camera" 
-                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-in-out" 
-                            draggable="false" 
-                        />
-                    </div>
-                </motion.div>
-
-                {/* Bottom Right: Mini Showreel (Reel Layout) */}
-                <motion.div
-                    initial={{ x: 50, y: 50, rotate: 10, opacity: 0 }}
-                    animate={{ x: 0, y: 0, rotate: 6, opacity: 1 }}
+                    initial={{ x: 50, y: 50, rotate: 0, opacity: 0 }}
+                    animate={{ x: 0, y: 0, rotate: 0, opacity: 1 }}
                     transition={{ delay: 0.8, duration: 0.6, type: "spring" }}
-                    className="absolute bottom-[5%] right-[6%] lg:right-[10%] w-[18vw] max-w-[180px] aspect-[9/16] rounded-2xl overflow-hidden pointer-events-auto hover:-translate-y-2 hover:rotate-2 transition-all duration-300 group border-[3px] border-[#0B0D0A]"
+                    className="absolute bottom-[8%] right-[6%] lg:right-[10%] w-[35vw] md:w-[22vw] lg:w-[18vw] max-w-[220px] aspect-[3/4] rounded-2xl overflow-hidden border-2 border-[#333333] shadow-2xl pointer-events-auto hover:-translate-y-2 transition-all duration-300 z-10"
                 >
-                    <MaskingTape className="-top-2 left-1/2 -translate-x-1/2" rotation={2} />
                     <video 
+                        key={showcaseVideos[videoIndex]} // Force React to reload the video when src changes
                         autoPlay 
-                        loop 
                         muted 
                         playsInline 
-                        className="absolute inset-0 w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-500"
+                        onEnded={() => setVideoIndex((prev) => (prev + 1) % showcaseVideos.length)}
+                        className="absolute inset-0 w-full h-full object-cover scale-[1.3] hover:scale-[1.4] transition-transform duration-700 bg-[#0B0D0A]"
                     >
-                        <source src="/showreel.mp4" type="video/mp4" />
+                        <source src={showcaseVideos[videoIndex]} type="video/mp4" />
                     </video>
                 </motion.div>
             </div>

@@ -69,6 +69,7 @@ export default function ProcessUnhinged() {
                             key={i} 
                             className="border-b-2 border-[#0B0D0A] group cursor-pointer relative"
                             onMouseEnter={() => setHoveredIndex(i)}
+                            onClick={() => setHoveredIndex(hoveredIndex === i ? null : i)}
                         >
                             {/* Title Row */}
                             <div className="flex justify-between items-center py-8 md:py-12 relative z-10">

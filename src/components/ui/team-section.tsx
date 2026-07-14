@@ -27,8 +27,8 @@ export default function TeamSection() {
             <div className="container mx-auto max-w-7xl relative z-10">
                 
                 {/* Section Header */}
-                <div className="mb-20 flex flex-col md:flex-row justify-between items-end border-b border-[#333] pb-8">
-                    <h2 className="text-5xl md:text-7xl font-black text-[#FAFAF7] uppercase tracking-tighter leading-none" style={{ fontFamily: 'var(--font-display, Archivo Black)' }}>
+                <div className="mb-20 flex flex-col md:flex-row justify-between items-start md:items-end border-b border-[#333] pb-8">
+                    <h2 className="text-[12vw] sm:text-5xl md:text-7xl font-black text-[#FAFAF7] uppercase tracking-tighter leading-none" style={{ fontFamily: 'var(--font-display, Archivo Black)' }}>
                         Leadership
                     </h2>
                     <p className="text-[#888888] font-mono tracking-widest text-sm uppercase mt-4 md:mt-0">

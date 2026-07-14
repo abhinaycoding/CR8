@@ -19,8 +19,11 @@ export default defineConfig({
         contact: resolve(__dirname, 'contact.html'),
         about: resolve(__dirname, 'about.html'),
         services: resolve(__dirname, 'services.html'),
-        work: resolve(__dirname, 'work.html')
+        work: resolve(__dirname, 'work.html'),
+        careers: resolve(__dirname, 'careers.html'),
+        catalogue: resolve(__dirname, 'catalogue.html')
       }
     }
   }
 })
+

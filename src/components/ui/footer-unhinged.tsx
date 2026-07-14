@@ -53,7 +53,7 @@ export default function FooterUnhinged() {
                         <ul className="flex flex-col space-y-3 font-medium text-lg" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
                             <li><a href="work.html" className="hover:text-[#D7FF3E] transition-colors">Our Work</a></li>
                             <li><a href="services.html" className="hover:text-[#D7FF3E] transition-colors">Services</a></li>
-                            <li><a href="index.html#process" className="hover:text-[#D7FF3E] transition-colors">Process</a></li>
+                            <li><a href="careers.html" className="hover:text-[#D7FF3E] transition-colors">Careers</a></li>
                             <li><a href="contact.html" className="hover:text-[#D7FF3E] transition-colors">Contact</a></li>
                         </ul>
                     </div>
@@ -84,7 +84,7 @@ export default function FooterUnhinged() {
 
                 {/* Massive Marquee Text */}
                 <div className="w-full flex items-center justify-center border-t border-b border-[#333333] py-8 mb-8 overflow-hidden">
-                    <h2 className="text-[12vw] leading-none font-black text-[#FAFAF7] tracking-tighter whitespace-nowrap" style={{ fontFamily: 'var(--font-display, Archivo Black)' }}>
+                    <h2 className="text-[8.5vw] md:text-[6vw] lg:text-[5.5vw] leading-none font-black text-[#FAFAF7] tracking-tighter whitespace-nowrap" style={{ fontFamily: 'var(--font-display, Archivo Black)' }}>
                         CR8 STUDIO &copy; 2026
                     </h2>
                 </div>

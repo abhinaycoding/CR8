@@ -110,14 +110,6 @@ export default function StopMotionScroll() {
                         REC • {String(currentIndex + 1).padStart(2, '0')}/20
                     </div>
                     
-                    <div className="absolute bottom-4 left-4 bg-[#D7FF3E] text-[#0B0D0A] px-4 py-2 font-black text-2xl uppercase tracking-tighter" style={{ fontFamily: 'var(--font-display, Archivo Black)' }}>
-                        RAW FOOTAGE
-                    </div>
-                </div>
-
-                {/* Floating Tape Sticker */}
-                <div className="absolute top-[10%] right-[10%] z-30 bg-[#FAFAF7] text-[#0B0D0A] px-6 py-2 transform rotate-12 shadow-lg opacity-80" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
-                    <strong>SCROLL FAST</strong>
                 </div>
 
             </div>

@@ -21,9 +21,7 @@ export default function AboutHero() {
                             WE ARE<br/>
                             <span className="text-[#D7FF3E]">CR8.</span>
                         </h1>
-                        <p className="mt-8 text-[#888888] font-mono tracking-widest text-sm uppercase">
-                            Creative Intelligence Agency
-                        </p>
+
                     </motion.div>
                 </div>
 
