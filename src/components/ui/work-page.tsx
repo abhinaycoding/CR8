@@ -1,7 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-
-const categories = ['ALL', 'BRANDING', 'PRODUCTION', 'WEB', 'EVENT', 'CAMPAIGN'];
 
 const projects = [
   {
@@ -79,11 +77,6 @@ const projects = [
 ];
 
 export default function WorkPage() {
-  const [activeFilter, setActiveFilter] = useState('ALL');
-
-  const filtered = activeFilter === 'ALL'
-    ? projects
-    : projects.filter(p => p.category === activeFilter);
 
   return (
     <div className="w-full bg-[#0B0D0A] text-[#FAFAF7] min-h-screen">
@@ -103,26 +96,6 @@ export default function WorkPage() {
         </div>
       </section>
 
-      {/* ── FILTER BAR ── */}
-      <div className="w-full px-6 lg:px-16 py-5 border-b border-[#1E1E1E] bg-[#0B0D0A]" style={{ position: 'sticky', top: '80px', zIndex: 10 }}>
-        <div className="max-w-screen-xl mx-auto flex flex-wrap gap-2">
-          {categories.map(cat => (
-            <button
-              key={cat}
-              onClick={() => setActiveFilter(cat)}
-              aria-pressed={activeFilter === cat}
-              className={`text-xs font-black uppercase tracking-widest px-4 py-2 border transition-all duration-200 ${
-                activeFilter === cat
-                  ? 'bg-[#D7FF3E] text-[#0B0D0A] border-[#D7FF3E]'
-                  : 'bg-transparent text-[#666666] border-[#2A2A2A] hover:border-[#555555] hover:text-[#FAFAF7]'
-              }`}
-            >
-              {cat}
-            </button>
-          ))}
-        </div>
-      </div>
-
       {/* ── PROJECT GRID ── */}
       <section className="w-full px-6 lg:px-16 py-12">
         <div className="max-w-screen-xl mx-auto">
@@ -131,7 +104,7 @@ export default function WorkPage() {
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
           >
             <AnimatePresence mode="popLayout">
-              {filtered.map((project, idx) => (
+              {projects.map((project, idx) => (
                 <motion.article
                   key={project.id}
                   layout
@@ -184,7 +157,7 @@ export default function WorkPage() {
             </AnimatePresence>
           </motion.div>
 
-          {filtered.length === 0 && (
+          {projects.length === 0 && (
             <div className="text-center py-32">
               <p className="text-[#333333] font-black text-2xl uppercase tracking-widest">
                 No projects in this category yet.
@@ -195,26 +168,31 @@ export default function WorkPage() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="w-full py-24 px-6 border-t border-[#1E1E1E] text-center">
-        <div className="max-w-xl mx-auto">
-          <p className="text-xs font-black tracking-[0.25em] text-[#D7FF3E] uppercase mb-5">
-            Ready to build something?
-          </p>
-          <h2
-            className="text-4xl md:text-5xl font-black uppercase leading-tight text-[#FAFAF7] mb-8"
-            style={{ fontFamily: 'var(--font-display, Archivo Black)' }}
-          >
-            Let's make your next project impossible to ignore.
-          </h2>
-          <a
-            href="/contact.html"
-            className="inline-block bg-[#D7FF3E] text-[#0B0D0A] font-black text-base py-4 px-10 uppercase tracking-widest hover:bg-[#FAFAF7] transition-colors duration-300"
-            style={{ fontFamily: 'var(--font-display, Archivo Black)' }}
-          >
-            Start a Project ↘
-          </a>
+      <section className="w-full py-24 px-6 lg:px-16 border-t border-[#1E1E1E]">
+        <div className="max-w-screen-xl mx-auto flex flex-col md:flex-row md:items-end justify-between gap-10">
+          <div>
+            <p className="text-xs font-black tracking-[0.25em] text-[#D7FF3E] uppercase mb-5">
+              Ready to build something?
+            </p>
+            <h2
+              className="text-4xl md:text-5xl lg:text-6xl font-black uppercase leading-tight text-[#FAFAF7]"
+              style={{ fontFamily: 'var(--font-display, Archivo Black)' }}
+            >
+              Let's make your next<br />project impossible to ignore.
+            </h2>
+          </div>
+          <div className="flex-shrink-0">
+            <a
+              href="/contact.html"
+              className="inline-block bg-[#D7FF3E] text-[#0B0D0A] font-black text-base py-4 px-10 uppercase tracking-widest hover:bg-[#FAFAF7] transition-colors duration-300 whitespace-nowrap"
+              style={{ fontFamily: 'var(--font-display, Archivo Black)' }}
+            >
+              Start a Project ↘
+            </a>
+          </div>
         </div>
       </section>
+
 
     </div>
   );
