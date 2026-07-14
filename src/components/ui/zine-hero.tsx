@@ -4,7 +4,7 @@ import MaskingTape from './masking-tape';
 import RippedPaper from './ripped-paper';
 
 export default function ZineHero() {
-    const words = ['CULTURE.', 'VIBE.', 'BRANDS.', 'NOISE.', 'HYPE.', 'MODELS.', 'CREATORS.'];
+    const words = ['CULTURE', 'VIBE', 'BRANDS', 'NOISE', 'HYPE', 'MODELS', 'CREATORS'];
     const [wordIndex, setWordIndex] = useState(0);
 
     // List of showcase videos to cycle through automatically
