@@ -92,9 +92,6 @@ export default function WorkPage() {
       <section className="w-full pb-10 px-6 lg:px-16 border-b border-[#1E1E1E]" style={{ paddingTop: '120px' }}>
         <div className="max-w-screen-xl mx-auto flex flex-col md:flex-row md:items-end md:justify-between gap-6">
           <div>
-            <p className="text-xs font-bold tracking-[0.25em] text-[#D7FF3E] uppercase mb-4">
-              Selected Work — 2021 to 2024
-            </p>
             <h1
               className="text-5xl md:text-6xl lg:text-7xl font-black uppercase leading-none tracking-tight text-[#FAFAF7]"
               style={{ fontFamily: 'var(--font-display, Archivo Black)' }}
@@ -102,12 +99,7 @@ export default function WorkPage() {
               Our Work
             </h1>
           </div>
-          <p
-            className="text-base text-[#777777] max-w-sm leading-relaxed md:text-right"
-            style={{ fontFamily: 'Space Grotesk, sans-serif' }}
-          >
-            {filtered.length} project{filtered.length !== 1 ? 's' : ''} · Built to disrupt, designed to last.
-          </p>
+
         </div>
       </section>
 
