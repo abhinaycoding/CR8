@@ -1,16 +1,17 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { motion, useScroll, useTransform, useMotionValueEvent } from 'framer-motion';
 
 export default function StopMotionScroll() {
     const containerRef = useRef<HTMLDivElement>(null);
-    const [currentIndex, setCurrentIndex] = React.useState(0);
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const [loaded, setLoaded] = useState(false);
+    const preloadedRef = useRef<HTMLImageElement[]>([]);
 
     const { scrollYProgress } = useScroll({
         target: containerRef,
         offset: ["start start", "end end"]
     });
 
-    // Array of 20 raw, gritty, chaotic agency images
     const images = [
         "https://images.unsplash.com/photo-1542204165-65bf26472b9b?q=80&w=1200&auto=format&fit=crop",
         "https://images.unsplash.com/photo-1618331835717-801e976710b2?q=80&w=1200&auto=format&fit=crop",
@@ -34,85 +35,74 @@ export default function StopMotionScroll() {
         "https://images.unsplash.com/photo-1520333789090-1afc82db536a?q=80&w=1200&auto=format&fit=crop"
     ];
 
-    // Map scroll progress to an index between 0 and 19
-    const imageIndex = useTransform(scrollYProgress, [0, 1], [0, images.length - 1]);
+    // Preload all images via JS Image objects (off-DOM, no render cost)
+    useEffect(() => {
+        let loadedCount = 0;
+        const total = images.length;
+        const imgs: HTMLImageElement[] = [];
 
+        images.forEach((src, i) => {
+            const img = new Image();
+            img.onload = () => {
+                loadedCount++;
+                if (loadedCount === total) setLoaded(true);
+            };
+            img.onerror = () => { loadedCount++; if (loadedCount === total) setLoaded(true); };
+            img.src = src;
+            imgs[i] = img;
+        });
+        preloadedRef.current = imgs;
+    }, []);
+
+    const imageIndex = useTransform(scrollYProgress, [0, 1], [0, images.length - 1]);
     useMotionValueEvent(imageIndex, "change", (latest) => {
-        setCurrentIndex(Math.floor(latest));
+        setCurrentIndex(Math.round(latest));
     });
 
-    // Animations for text elements based on scroll progress
     const scale1 = useTransform(scrollYProgress, [0, 0.5], [0.8, 1.2]);
     const opacity1 = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
-    
+
     return (
         <section ref={containerRef} className="relative h-[400vh] w-full bg-[#0B0D0A]">
-            {/* Sticky Container */}
             <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center border-y-8 border-[#FAFAF7]">
                 
-                {/* Background Noise Layer */}
                 <div className="absolute inset-0 opacity-10 pointer-events-none z-20 mix-blend-overlay" 
                      style={{ backgroundImage: 'url("data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjAwIDIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZmlsdGVyIGlkPSJub2lzZUZpbHRlciI+PGZlVHVyYnVsZW5jZSB0eXBlPSJmcmFjdGFsTm9pc2UiIGJhc2VGcmVxdWVuY3k9IjAuOSIgbnVtT2N0YXZlcz0iMyIgc3RpdGNoVGlsZXM9InN0aXRjaCIvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbHRlcj0idXJsKCNub2lzZUZpbHRlcikiLz48L3N2Zz4=")' }}
                 />
 
-                {/* Massive Background Typography */}
                 <motion.div 
                     style={{ scale: scale1, opacity: opacity1 }}
                     className="absolute z-0 w-full text-center flex flex-col justify-center items-center pointer-events-none"
                 >
-                    <h2 
-                        className="text-[25vw] font-black uppercase leading-[0.8] text-[#FAFAF7] opacity-10" 
-                        style={{ fontFamily: 'var(--font-display, Archivo Black)' }}
-                    >
+                    <h2 className="text-[25vw] font-black uppercase leading-[0.8] text-[#FAFAF7] opacity-10" style={{ fontFamily: 'var(--font-display, Archivo Black)' }}>
                         UNFILTERED
                     </h2>
-                    <h2 
-                        className="text-[25vw] font-black uppercase leading-[0.8] text-transparent" 
-                        style={{ 
-                            fontFamily: 'var(--font-display, Archivo Black)',
-                            WebkitTextStroke: '4px #D7FF3E',
-                            opacity: 0.3
-                        }}
-                    >
+                    <h2 className="text-[25vw] font-black uppercase leading-[0.8] text-transparent" style={{ fontFamily: 'var(--font-display, Archivo Black)', WebkitTextStroke: '4px #D7FF3E', opacity: 0.3 }}>
                         VISION
                     </h2>
                 </motion.div>
 
-                {/* Stop-Motion Image Frame */}
-                <div className="relative z-10 w-[90vw] md:w-[60vw] h-[60vh] max-w-5xl border-[16px] border-[#0B0D0A] shadow-[24px_24px_0px_#D7FF3E] bg-[#FAFAF7] overflow-hidden">
-                    
-                    {/* Preload all images so there is no flicker */}
-                    <div className="hidden">
-                        {images.map((src, idx) => (
-                            <img key={`preload-${idx}`} src={src} alt="preload" />
-                        ))}
-                    </div>
+                {/* Single img — src swaps instantly from browser cache */}
+                <div className="relative z-10 w-[90vw] md:w-[60vw] h-[60vh] max-w-5xl border-[16px] border-[#0B0D0A] shadow-[24px_24px_0px_#D7FF3E] bg-[#0B0D0A] overflow-hidden">
+                    {loaded ? (
+                        <img
+                            src={images[currentIndex]}
+                            alt="Stop motion frame"
+                            className="w-full h-full object-cover grayscale contrast-150 mix-blend-multiply"
+                            style={{ willChange: 'contents' }}
+                        />
+                    ) : (
+                        <div className="w-full h-full flex items-center justify-center">
+                            <span className="text-[#333333] font-mono text-sm tracking-widest">LOADING FRAMES...</span>
+                        </div>
+                    )}
 
-                    {/* The Active Image */}
-                    <img 
-                        src={images[currentIndex]} 
-                        alt="Stop motion frame" 
-                        className="w-full h-full object-cover grayscale contrast-150 mix-blend-multiply"
-                    />
-
-                    {/* Flashing Shutter Effect Overlay */}
-                    <motion.div
-                        className="absolute inset-0 bg-[#FAFAF7] mix-blend-screen pointer-events-none"
-                        animate={{ opacity: [0, 0.8, 0] }}
-                        transition={{ duration: 0.1, repeat: Infinity, repeatType: "mirror" }}
-                        style={{ 
-                            opacity: scrollYProgress.get() > 0 && scrollYProgress.get() < 1 ? undefined : 0 
-                        }}
-                    />
-
-                    {/* Frame Counter / UI */}
-                    <div className="absolute top-4 right-4 bg-[#0B0D0A] text-[#D7FF3E] px-3 py-1 font-bold text-xl border-2 border-[#D7FF3E]" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+                    <div className="absolute top-4 right-4 bg-[#0B0D0A] text-[#D7FF3E] px-3 py-1 font-bold text-xl border-2 border-[#D7FF3E] z-10" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
                         REC • {String(currentIndex + 1).padStart(2, '0')}/20
                     </div>
-                    
                 </div>
-
             </div>
         </section>
     );
 }
+
