@@ -6,7 +6,7 @@ export default function CareersPage() {
         {
             title: "CINEMATOGRAPHY INTERN",
             type: "INTERNSHIP",
-            location: "NEW YORK",
+            location: "NAGPUR",
             desc: "You don't just hold a camera; you understand lighting, framing, and pure visual chaos. Come learn how to shoot narrative-driven content that breaks algorithms. Bring a reel that proves you have an eye."
         }
     ];

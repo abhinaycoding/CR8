@@ -21,11 +21,10 @@ export default function CtaUnhinged() {
                                 initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
                                 className="flex flex-col"
                             >
-                                <p className="text-white text-xl font-medium mb-2" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>New York</p>
-                                <p className="text-gray-400 text-sm leading-relaxed" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
-                                    123 Street Culture Blvd<br/>
-                                    New York, NY 10012<br/>
-                                    United States
+                                <p className="text-white text-xl font-medium mb-2" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>Nagpur</p>
+                                <p className="text-[#888888]" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+                                    Nagpur, Maharashtra<br/>
+                                    India 440001
                                 </p>
                             </motion.div>
 

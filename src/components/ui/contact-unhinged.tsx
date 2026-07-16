@@ -41,8 +41,8 @@ export default function ContactUnhinged() {
               <div>
                 <h4 className="text-xs font-bold tracking-widest text-[#888888] mb-3 uppercase">Headquarters</h4>
                 <p className="text-xl font-medium leading-relaxed text-[#0B0D0A]" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
-                  123 Street Culture Blvd<br />
-                  New York, NY 10012
+                  Nagpur, Maharashtra<br />
+                  India 440001
                 </p>
               </div>
               <div>

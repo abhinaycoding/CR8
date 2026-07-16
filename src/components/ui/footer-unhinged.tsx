@@ -41,8 +41,8 @@ export default function FooterUnhinged() {
                         <div className="mt-auto">
                             <p className="text-sm font-bold uppercase tracking-widest text-[#D7FF3E] mb-2">HEADQUARTERS</p>
                             <p className="font-medium text-[#FAFAF7]" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
-                                123 Street Culture Blvd<br />
-                                New York, NY 10012
+                                Nagpur, Maharashtra<br/>
+                                India 440001
                             </p>
                         </div>
                     </div>
