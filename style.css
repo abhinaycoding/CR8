@@ -359,6 +359,9 @@ img { max-width: 100%; display: block; object-fit: cover; }
   transition: all 0.3s ease;
 }
 
+.floating-mobile-cta { display: none; }
+
+
 .sticker-btn {
   background: rgba(255, 255, 255, 0.05);
   color: var(--text-primary);
@@ -922,7 +925,30 @@ img { max-width: 100%; display: block; object-fit: cover; }
     width: calc(100% - 20px); 
     padding: 12px 16px; 
   }
-  .nav-cta { display: none; }
+  .nav-cta { 
+    display: none; 
+  }
+  .floating-mobile-cta {
+    display: flex;
+    position: fixed;
+    top: 50%;
+    right: 0;
+    z-index: 9999;
+    animation: slide-in-right 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  }
+  @keyframes slide-in-right {
+    from { transform: translate(100px, -50%); opacity: 0; }
+    to { transform: translate(0, -50%); opacity: 1; }
+  }
+  .floating-mobile-cta .sticker-btn {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    transform: rotate(180deg); /* so it reads bottom-to-top which is standard for right edge */
+    padding: 20px 10px !important;
+    font-size: 0.85rem !important;
+    border-radius: 8px 0 0 8px; /* Flat on the right edge */
+    box-shadow: -4px 0 15px rgba(0,0,0,0.3) !important;
+  }
   .mobile-menu-btn { display: flex; }
   
   .nav-links {
@@ -1007,7 +1033,7 @@ img { max-width: 100%; display: block; object-fit: cover; }
     color: var(--white);
   }
   
-  .nav-cta { display: none; }
+  /* .nav-cta { display: none; } */
   .mobile-menu-btn { display: flex; z-index: 10000; }
   
   .hero { padding: 180px 24px 40px; }

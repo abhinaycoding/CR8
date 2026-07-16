@@ -111,10 +111,10 @@ export default function ChaoticServices() {
                                         {[...Array(10)].map((_, j) => (
                                             <span 
                                                 key={j} 
-                                                className="text-[12vw] font-black uppercase tracking-[-0.01em] text-transparent"
+                                                className="text-[12vw] font-black uppercase tracking-tight text-transparent"
                                                 style={{ 
-                                                    fontFamily: 'var(--font-display, Archivo Black)',
-                                                    WebkitTextStroke: `2px ${service.color}`
+                                                    fontFamily: 'var(--font-body, sans-serif)',
+                                                    WebkitTextStroke: `1px ${service.color}`
                                                 }}
                                             >
                                                 {service.title} &mdash;
@@ -139,11 +139,11 @@ export default function ChaoticServices() {
                                 
                                 <div>
                                     <h3 
-                                        className="text-[12vw] md:text-[6vw] font-black leading-none uppercase tracking-[-0.01em] transition-all duration-500" 
+                                        className="text-[12vw] md:text-[6vw] font-black leading-none uppercase tracking-tight transition-all duration-500" 
                                         style={{ 
-                                            fontFamily: 'var(--font-display, Archivo Black)', 
+                                            fontFamily: 'var(--font-body, sans-serif)', 
                                             color: (isMobile || hoveredIndex === i) ? service.color : 'transparent',
-                                            WebkitTextStroke: (isMobile || hoveredIndex === i) ? 'none' : '2px #FAFAF7',
+                                            WebkitTextStroke: (isMobile || hoveredIndex === i) ? 'none' : '1px #FAFAF7',
                                             transform: hoveredIndex === i ? 'translateX(20px)' : 'translateX(0px)'
                                         }}
                                     >
