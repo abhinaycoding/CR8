@@ -46,7 +46,7 @@ export default function WorkMarquee() {
                                 whileHover={{ scale: 1.05, rotate: 2, y: -10, zIndex: 40 }}
                                 className="relative flex-shrink-0 w-[250px] md:w-[400px] h-[300px] md:h-[450px] border-[4px] border-[#FAFAF7] shadow-[12px_12px_0px_#D7FF3E] overflow-hidden grayscale hover:grayscale-0 transition-all duration-300 cursor-grab active:cursor-grabbing"
                             >
-                                <img src={src} alt="Gallery item" className="w-full h-full object-cover transform scale-110" draggable="false" />
+                                <img loading="lazy" decoding="async" src={src} alt="Gallery item" className="w-full h-full object-cover transform scale-110" draggable="false" />
                                 {i % 3 === 0 && (
                                     <div className="absolute top-4 left-4 bg-[#0044FF] text-[#FAFAF7] font-black px-4 py-1 border-2 border-[#FAFAF7] text-xl transform -rotate-12 shadow-[4px_4px_0px_#FAFAF7]" style={{ fontFamily: 'var(--font-display, Archivo Black)' }}>
                                         RAW.
@@ -70,7 +70,7 @@ export default function WorkMarquee() {
                                 whileHover={{ scale: 1.05, rotate: -2, y: -10, zIndex: 40 }}
                                 className="relative flex-shrink-0 w-[250px] md:w-[400px] h-[300px] md:h-[450px] border-[4px] border-[#FAFAF7] shadow-[12px_12px_0px_#0044FF] overflow-hidden grayscale hover:grayscale-0 transition-all duration-300 cursor-grab active:cursor-grabbing"
                             >
-                                <img src={src} alt="Gallery item" className="w-full h-full object-cover transform scale-110" draggable="false" />
+                                <img loading="lazy" decoding="async" src={src} alt="Gallery item" className="w-full h-full object-cover transform scale-110" draggable="false" />
                                 {i % 2 === 0 && (
                                     <div className="absolute bottom-4 right-4 bg-[#D7FF3E] text-[#0B0D0A] font-black px-4 py-1 border-2 border-[#0B0D0A] text-xl transform rotate-6 shadow-[4px_4px_0px_#0B0D0A]" style={{ fontFamily: 'var(--font-display, Archivo Black)' }}>
                                         FILM.

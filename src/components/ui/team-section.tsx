@@ -48,7 +48,7 @@ export default function TeamSection() {
                         >
                             {/* Premium Image Container */}
                             <div className="relative aspect-[4/5] overflow-hidden bg-[#111] mb-8">
-                                <img 
+                                <img loading="lazy" decoding="async" 
                                     src={member.img} 
                                     alt={member.name}
                                     className="w-full h-full object-cover filter grayscale contrast-110 transition-transform duration-[2s] ease-out group-hover:scale-105"

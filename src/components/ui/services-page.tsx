@@ -72,7 +72,7 @@ export default function ServicesPage() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="absolute inset-0 z-0 pointer-events-none"
           >
-            <img src={hoveredService.img} alt={hoveredService.name} className="w-full h-full object-cover grayscale mix-blend-overlay" />
+            <img loading="lazy" decoding="async" src={hoveredService.img} alt={hoveredService.name} className="w-full h-full object-cover grayscale mix-blend-overlay" />
             <div className="absolute inset-0 bg-gradient-to-t from-[#0B0D0A] via-transparent to-[#0B0D0A]"></div>
           </motion.div>
         )}

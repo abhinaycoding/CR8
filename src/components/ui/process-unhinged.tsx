@@ -126,7 +126,7 @@ export default function ProcessUnhinged() {
                             }}
                             className="fixed top-0 left-0 w-[450px] h-[320px] pointer-events-none z-[100] overflow-hidden border-4 border-[#0B0D0A] shadow-[16px_16px_0px_#0044FF]"
                         >
-                            <img 
+                            <img loading="lazy" decoding="async" 
                                 src={steps[hoveredIndex].img} 
                                 alt="Process Visual" 
                                 className="w-full h-full object-cover scale-110" 

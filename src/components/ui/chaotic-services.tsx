@@ -211,7 +211,7 @@ export default function ChaoticServices() {
                                 translateY: '-50%'
                             }}
                         >
-                            <img 
+                            <img loading="lazy" decoding="async" 
                                 src={services[hoveredIndex].img} 
                                 alt="Service preview" 
                                 className="w-full h-full object-cover grayscale contrast-125 hover:grayscale-0 transition-all duration-500"

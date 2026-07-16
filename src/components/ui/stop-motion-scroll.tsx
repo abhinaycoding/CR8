@@ -84,8 +84,7 @@ export default function StopMotionScroll() {
 
                 <div className="relative z-10 w-[90vw] md:w-[60vw] h-[60vh] max-w-5xl border-[16px] border-[#0B0D0A] shadow-[24px_24px_0px_#D7FF3E] bg-[#FAFAF7] overflow-hidden">
                     {loaded ? (
-                        <img
-                            src={images[currentIndex]}
+                        <img loading="lazy" decoding="async"                             src={images[currentIndex]}
                             alt="Stop motion frame"
                             className="w-full h-full object-cover grayscale contrast-150 mix-blend-multiply"
                             style={{ willChange: 'contents' }}

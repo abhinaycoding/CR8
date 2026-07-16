@@ -47,8 +47,7 @@ function FlipCard({ src, index, phase, target }: FlipCardProps) {
                     className="absolute inset-0 h-full w-full overflow-hidden shadow-[4px_4px_0px_#0B0D0A] bg-gray-200 border-2 border-[#0B0D0A]"
                     style={{ backfaceVisibility: "hidden" }}
                 >
-                    <img
-                        src={src}
+                    <img loading="lazy" decoding="async"                         src={src}
                         alt={`hero-${index}`}
                         className="h-full w-full object-cover filter grayscale contrast-125 hover:grayscale-0 transition-all duration-300"
                     />
