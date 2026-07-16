@@ -127,3 +127,9 @@ const chatbotRoot = document.getElementById('react-chatbot');
 if (chatbotRoot) {
   createRoot(chatbotRoot).render(<Chatbot />);
 }
+
+import NotFoundPage from './src/components/ui/not-found-page';
+const notFoundRoot = document.getElementById('react-not-found-page');
+if (notFoundRoot) {
+  createRoot(notFoundRoot).render(<NotFoundPage />);
+}

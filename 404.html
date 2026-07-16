@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Page Not Found | CR8 Studios</title>
+    <meta name="description" content="404 - You took a wrong turn." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@900&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body class="bg-[#0B0D0A] text-[#FAFAF7] overflow-hidden">
+    <div class="noise"></div>
+    
+    <!-- Nav -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="logo">
+          <a href="index.html" class="brand-logo font-display" style="display: flex; align-items: center; gap: 6px;">
+            <span class="logo-cr8" style="letter-spacing: -0.05em; font-style: normal; color: #FAFAF7 !important;">CR8</span>
+            <span class="logo-studio" style="font-weight: 900; font-style: normal; color: #FAFAF7 !important;">STUDIOS</span>
+            <span class="logo-dot" style="margin-left: -4px;">.</span>
+          </a>
+        </div>
+        <ul class="nav-links">
+          <li class="nav-dropdown">
+            <a href="services.html">Services <span class="dropdown-arrow">▼</span></a>
+            <div class="dropdown-menu">
+              <a href="services.html?tab=0">PRODUCTION & CREATIVE</a>
+              <a href="services.html?tab=1">MARKETING & GROWTH</a>
+              <a href="services.html?tab=2">SPACES & EVENTS</a>
+              <a href="services.html?tab=3">COMMUNITY</a>
+            </div>
+          </li>
+          <li><a href="work.html">Work</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="careers.html">Careers</a></li>
+        </ul>
+        <div class="nav-cta">
+          <a href="contact.html" class="brutal-btn sticker-btn">BOOK US ↘</a>
+        </div>
+        <button class="mobile-menu-btn" aria-label="Toggle Menu">
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- React 404 Mount Point -->
+    <div id="react-not-found-page"></div>
+
+    <div class="floating-mobile-cta"><a href="contact.html" class="brutal-btn sticker-btn">BOOK US ↘</a></div>
+    
+    <script type="module" src="/main.tsx"></script>
+  </body>
+</html>
